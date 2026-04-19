@@ -1,6 +1,11 @@
 import { Stack } from 'expo-router'
+import { useState } from 'react'
 
 export default function RootLayout() {
+  const [login, setLogin] = useState(null)
+
+
+
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
