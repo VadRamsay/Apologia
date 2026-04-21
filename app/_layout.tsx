@@ -1,7 +1,7 @@
 import { Stack, useRouter, useSegments } from 'expo-router'
 import { onAuthStateChanged, User } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import { auth } from '../Config Files/firebaseConfig'
+import { auth } from '../config/firebaseConfig'
 
 export default function RootLayout() {
   const [login, setLogin] = useState<User | null>(null)

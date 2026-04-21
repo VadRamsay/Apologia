@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth'
 import { Text, TouchableOpacity, View } from 'react-native'
-import { auth } from '../Config Files/firebaseConfig'
+import { auth } from '../config/firebaseConfig'
 
 function HomeScreen() {
 
@@ -18,4 +18,4 @@ function HomeScreen() {
     )
 }
 
-export default HomeScreen()
+export default HomeScreen
