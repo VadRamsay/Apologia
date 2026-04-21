@@ -5,24 +5,27 @@ import { auth } from './firebaseConfig'
 
 export default function RootLayout() {
   const [login, setLogin] = useState<User | null>(null)
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   // Listen for authentication state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setLogin(currentUser)
+      setLoading(false)
     })
     return unsubscribe
   }, [])
 
   useEffect(() => {
+    if (loading) return
     if (login === null) {
       router.replace("/login")
     }
     if (login !== null) {
       router.replace("/")
     }
-  }, [login])
+  }, [login, loading])
 
   return (
     <Stack>

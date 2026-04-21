@@ -40,5 +40,5 @@ function LoginScreen() {
     )
 }
 
-export default RegisterScreen;
+export default LoginScreen;
 
