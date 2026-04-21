@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native'
 
-function Profile() {
+function EventsScreen() {
     return (
         <View>
-            <Text>Profile</Text>
+            <Text>Events</Text>
         </View>
     )
 }
 
-export default Profile()
+export default EventsScreen()
