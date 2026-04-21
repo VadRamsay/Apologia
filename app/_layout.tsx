@@ -1,4 +1,4 @@
-import { Stack, useRouter } from 'expo-router'
+import { Stack, useRouter, useSegments } from 'expo-router'
 import { onAuthStateChanged, User } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import { auth } from './firebaseConfig'
@@ -7,6 +7,7 @@ export default function RootLayout() {
   const [login, setLogin] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
+  const segments = useSegments()
 
   // Listen for authentication state changes
   useEffect(() => {
@@ -17,15 +18,19 @@ export default function RootLayout() {
     return unsubscribe
   }, [])
 
+  // Redirect 
   useEffect(() => {
     if (loading) return
-    if (login === null) {
+
+    const inAuthScreen = segments[0] === 'login' || segments[0] === 'register'
+
+    if (!login && !inAuthScreen) {
       router.replace("/login")
     }
-    if (login !== null) {
+    if (login && inAuthScreen) {
       router.replace("/")
     }
-  }, [login, loading])
+  }, [login, loading, segments])
 
   return (
     <Stack>
