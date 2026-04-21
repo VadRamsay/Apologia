@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth'
 import { Text, TouchableOpacity, View } from 'react-native'
-import { auth } from './firebaseConfig'
+import { auth } from '../Config Files/firebaseConfig'
 
 function HomeScreen() {
 

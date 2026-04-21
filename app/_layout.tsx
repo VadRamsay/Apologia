@@ -1,7 +1,7 @@
 import { Stack, useRouter, useSegments } from 'expo-router'
 import { onAuthStateChanged, User } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import { auth } from './firebaseConfig'
+import { auth } from '../Config Files/firebaseConfig'
 
 export default function RootLayout() {
   const [login, setLogin] = useState<User | null>(null)
@@ -39,4 +39,4 @@ export default function RootLayout() {
       <Stack.Screen name="register" options={{ headerShown: false }} />
     </Stack>
   )
-} 
+}

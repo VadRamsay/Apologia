@@ -8,4 +8,4 @@ function Sermons() {
     )
 }
 
-export default Sermons()
+export default Sermons
