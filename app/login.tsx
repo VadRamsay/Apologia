@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
-import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { auth } from '../config/firebaseConfig'
 
 function LoginScreen() {
@@ -20,14 +20,19 @@ function LoginScreen() {
     }
 
     return (
-        <View>
-            <Text>Log In</Text>
+        <View style={styles.container}>
+            <Image source={require('../assets/logo.png')} style={styles.logo} />
+
+            <Text style={styles.title}>Log In</Text>
+
             <TextInput
+                style={styles.input}
                 placeholder='What is Thy Email?'
                 value={email}
                 onChangeText={setEmail}
             />
             <TextInput
+                style={styles.input}
                 placeholder='What is Thy Password?'
                 value={password}
                 onChangeText={setPassword}
@@ -41,4 +46,33 @@ function LoginScreen() {
 }
 
 export default LoginScreen
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#1a1a1a',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24,
+    },
+
+    logo: {
+        width: 200,
+        height: 200,
+        resizeMode: 'contain',
+        marginBottom: 40,
+    },
+
+    input: {
+        color: '#ffffff',
+        padding: 16,
+        borderRadius: 8,
+        marginBottom: 12,
+        fontSize: 16,
+    },
+
+    title: {
+        color: '#ffffff'
+    }
+})
 
