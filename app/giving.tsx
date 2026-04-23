@@ -8,4 +8,4 @@ function GivingScreen() {
     )
 }
 
-export default GivingScreen()
+export default GivingScreen
